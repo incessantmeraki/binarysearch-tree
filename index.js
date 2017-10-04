@@ -151,3 +151,32 @@ BSTree.prototype.clear = function() {
   this._sentinel = null
   this._size = 0
 }
+
+BSTree.prototype.depth = function (key) {
+  var sentinel = this._sentinel
+  var depth = 0
+  n = sentinel.right
+  while (true) {
+    if (n === sentinel) return -1
+    if (key === n.key) return depth
+    if (key < n.key) n = n.left
+    else n = n.right
+    depth++
+  }
+}
+
+BSTree.prototype.height = function () {
+  var sentinel = this._sentinel
+  return this._recursiveHeight(sentinel.right)
+}
+
+BSTree.prototype._recursiveHeight = function (node) {
+  if (node === this._sentinel) return -1
+  var lh = this._recursiveHeight(node.left)
+  var rh = this._recursiveHeight(node.right)
+  if (lh > rh)
+    return 1 + lh
+  else
+    return 1 + rh
+}
+
