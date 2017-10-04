@@ -76,5 +76,8 @@ test('check if deletion works', function (t) {
  t.equal(btree.delete('b'), 1)
  t.equal(btree.size(), 3)
  t.equal(btree.find('b'), null)
+ btree.clear()
+ t.true(btree.isEmpty())
+ t.equal(btree.size() , 0)
  t.end()
 })

@@ -99,9 +99,7 @@ BSTree.prototype.delete = function (key) {
     var tmpkey = mlc.key
     var tmpval = mlc.val
     console.log(tmpkey)
-    console.log('before', this._size)
     this.delete.call(this,tmpkey)
-    console.log('after', this._size)
     n.key = tmpkey
     n.val = tmpval
   }
