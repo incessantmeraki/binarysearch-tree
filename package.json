@@ -1,0 +1,29 @@
+{
+  "name": "binarysearch-tree",
+  "version": "1.0.0",
+  "description": "binary search tree in javascript",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incessantmeraki/binarysearch-tree.git"
+  },
+  "keywords": [
+    "javascript",
+    "BST",
+    "node",
+    "binarysearchtree"
+  ],
+  "author": "incessantmeraki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/incessantmeraki/binarysearch-tree/issues"
+  },
+  "homepage": "https://github.com/incessantmeraki/binarysearch-tree#readme"
+}
