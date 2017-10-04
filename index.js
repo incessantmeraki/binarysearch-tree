@@ -65,7 +65,7 @@ BSTree.prototype.delete = function (key) {
   var sentinel = this._sentinel
 
   var n = sentinel.right
-  if (n === sentinel) return 0
+  //if (n === sentinel) return 0
   while (n !== sentinel && key != n.key) {
     if (key < n.key) 
       n = n.left
@@ -81,9 +81,9 @@ BSTree.prototype.delete = function (key) {
       parent.left = n.right
     else
       parent.right = n.right
-    n.right.parent = parent
+    if (n.right !==sentinel) n.right.parent = parent
     n = null
-    this._size --
+    this._size--
   }
   else if (n.right === sentinel) {
     if (n === parent.left) 
@@ -92,13 +92,16 @@ BSTree.prototype.delete = function (key) {
       parent.right = n.left
     n.left.parent = parent
     n = null
-    this._size --
+    this._size--
   }
   else {
-    for (var mlc = n.left; mlc.right !== sentinel; mlc = mlc.right) 
+    for (var mlc = n.left; mlc.right !== sentinel; mlc = mlc.right) {} 
     var tmpkey = mlc.key
     var tmpval = mlc.val
-    this.delete(tmpkey)
+    console.log(tmpkey)
+    console.log('before', this._size)
+    this.delete.call(this,tmpkey)
+    console.log('after', this._size)
     n.key = tmpkey
     n.val = tmpval
   }
@@ -120,23 +123,23 @@ BSTree.prototype.postorder = function (cb) {
 BSTree.prototype._recursiveInorder = function(node, cb) {
   if (node === this._sentinel) return
   this._recursiveInorder(node.left, cb)
-  cb(node.key)
+  cb(node)
   this._recursiveInorder(node.right, cb)
 }
 
 
 BSTree.prototype._recursivePostorder = function(node, cb) {
   if (node === this._sentinel) return
-  this._recursiveInorder(node.left, cb)
-  this._recursiveInorder(node.right, cb)
-  cb(node.key)
+  this._recursivePostorder(node.left, cb)
+  this._recursivePostorder(node.right, cb)
+  cb(node)
 }
 
 BSTree.prototype._recursivePreorder = function(node, cb) {
   if (node === this._sentinel) return
-  cb(node.key)
-  this._recursiveInorder(node.left, cb)
-  this._recursiveInorder(node.right, cb)
+  cb(node)
+  this._recursivePreorder(node.left, cb)
+  this._recursivePreorder(node.right, cb)
 }
 
 BSTree.prototype.size = function () {
@@ -144,7 +147,7 @@ BSTree.prototype.size = function () {
 }
 
 BSTree.prototype.isEmpty = function () {
-  return (size === 0)
+  return (this._size === 0)
 }
 
 BSTree.prototype.clear = function() {
