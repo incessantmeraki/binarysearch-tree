@@ -1,0 +1,143 @@
+{
+  "name": "incessantmeraki/binarysearch-tree",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/incessantmeraki/binarysearch-tree",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/binarysearch-tree",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "binarysearch-tree",
+      "subhead": "binary search tree in javascript",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "binarysearch-tree: binary search tree in javascript",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "incessantmeraki",
+          "repo": "binarysearch-tree"
+        }
+      ],
+      "text": "v1.0.1"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>binary search tree with basic operations </p>\n<p><a href=\"https://travis-ci.org/incessantmeraki/binarysearch-tree\"><img src=\"https://travis-ci.org/incessantmeraki/binarysearch-tree.svg?branch=master\"></a></p>\n<h2>Usage</h2>\n<h3>Example</h3>\n<pre>  <span class=\"hljs-keyword\">var</span> BST = <span class=\"hljs-built_in\">require</span>(<span class=\"hljs-string\">&apos;binarysearch-tree&apos;</span>)\n  <span class=\"hljs-keyword\">var</span> t = <span class=\"hljs-keyword\">new</span> BST()\n  t.insert(<span class=\"hljs-number\">1</span>, <span class=\"hljs-string\">&apos;one&apos;</span>)\n  t.insert(<span class=\"hljs-number\">2</span>, <span class=\"hljs-string\">&apos;two&apos;</span>)\n  <span class=\"hljs-built_in\">console</span>.log(t.size()) <span class=\"hljs-comment\">//displays 2</span>\n  t.delete(<span class=\"hljs-number\">1</span>) <span class=\"hljs-comment\">//removes node with key 1 </span>\n\n  <span class=\"hljs-comment\">//perform inorder travel and print value of each node</span>\n  t.inorder(<span class=\"hljs-function\"><span class=\"hljs-keyword\">function</span> (<span class=\"hljs-params\">node</span>) </span>{\n    <span class=\"hljs-built_in\">console</span>.log(node.val)\n  })</pre><h3>API</h3>\n<h4><code>tree= new BST()</code></h4>\n<p>create new instance of binary tree</p>\n<h4><code>tree.insert(key,val)</code></h4>\n<p>inserts node with with key as key and value as val. returns 1 if successfully inserted</p>\n<h4><code>tree.delete(key)</code></h4>\n<p>removes node with key as key from the tree . returns 1 on successful deletion and 0 on failure </p>\n<h4><code>tree.size()</code></h4>\n<p>returns the number of elements/nodes on the tree</p>\n<h4><code>tree.find(key)</code></h4>\n<p>returns value of node with key as key . returns null if such key not present</p>\n<h4><code>tree.depth(key)</code></h4>\n<p>returns depth of node with key as key</p>\n<h4><code>tree.height()</code></h4>\n<p>returns height of the tree</p>\n<h4><code>tree.inorder(callback(node))</code></h4>\n<p>performs in-order traversal of tree returning each node on callback function</p>\n<h4><code>tree.postorder(callback(node))</code></h4>\n<p>performs post-order traversal of tree returning each node on callback function</p>\n<h4><code>tree.preorder(callback(node))</code></h4>\n<p>performs pre-order traversal of tree returning each node on callback function</p>\n<h4><code>tree.isEmpty()</code></h4>\n<p>returns true if the tree is empty otherwise false</p>\n<h4><code>tree.clear()</code></h4>\n<p>removes the tree</p>\n<h2>License</h2>\n<p>MIT</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/incessantmeraki/binarysearch-tree",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/incessantmeraki",
+          "text": "incessantmeraki"
+        }
+      ]
+    }
+  ]
+}
