@@ -58,7 +58,10 @@ performs pre-order traversal of tree returning each node on callback function
 returns true if the tree is empty otherwise false
 
 #### `tree.clear()`
-removes the tree
+resets the tree
+
+#### `tree.isAVL()`
+returns 1 if the tree is AVL(balanced) else returns 0
 
 ## License
 
