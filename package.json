@@ -1,6 +1,6 @@
 {
   "name": "binarysearch-tree",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "binary search tree in javascript",
   "main": "index.js",
   "dependencies": {},
