@@ -63,6 +63,9 @@ resets the tree
 #### `tree.isAVL()`
 returns 1 if the tree is AVL(balanced) else returns 0
 
+#### `tree.isAVL(key)`
+rotates the tree about the node having key as key. Returns 0 if rotation not possible or key not found
+
 ## License
 
 MIT
