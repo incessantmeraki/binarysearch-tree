@@ -149,7 +149,9 @@ BSTree.prototype.isEmpty = function () {
 }
 
 BSTree.prototype.clear = function() {
-  this._sentinel = null
+  this._sentinel.parent = null
+  this._sentinel.left = null
+  this._sentinel.right = this._sentinel
   this._size = 0
 }
 
@@ -180,4 +182,30 @@ BSTree.prototype._recursiveHeight = function (node) {
   else
     return 1 + rh
 }
+
+BSTree.prototype.isAVL = function () {
+  var sentinel = this._sentinel
+  return this._recursive_height_and_avl_check(sentinel.right)
+}
+
+BSTree.prototype._recursive_height_and_avl_check = function (n) {
+  var lh,rh
+
+  if (n == this._sentinel) return 1
+
+  lh = this._recursiveHeight(n.left)
+  rh = this._recursiveHeight(n.right)
+  
+  if (Math.abs(lh-rh) <=1 &&
+    this._recursive_height_and_avl_check(n.left) &&
+    this._recursive_height_and_avl_check(n.right))
+    return 1 
+
+  return 0
+}
+
+BSTree.prototype.rotate = function (key) {
+  // performs rotation about key return 1 if successful or 0 if no key or is root
+}
+
 
