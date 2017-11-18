@@ -205,7 +205,50 @@ BSTree.prototype._recursive_height_and_avl_check = function (n) {
 }
 
 BSTree.prototype.rotate = function (key) {
-  // performs rotation about key return 1 if successful or 0 if no key or is root
+  var sentinel = this._sentinel
+  n = sentinel.right
+  if (n.key == key) return 0
+  while (true) {
+    if (n === sentinel) return 0
+    if (key === n.key) {
+      var parentNode = n.parent
+      var gParent = parentNode.parent
+      if (gParent.left === parentNode)
+        gParent.left = n
+      else 
+        gParent.right = n
+      if (n === parentNode.left) {
+        if (n.right === this._sentinel) {
+          n.right = parentNode
+          n.parent = parentNode.parent
+          parentNode.parent = n
+        } else {
+          var tempRight = n.right
+          n.right = parentNode
+          n.parent = parentNode.parent
+          parentNode.parent = n
+          parentNode.left = tempRight
+        }
+      }
+      else {
+        if (n.left === this._sentinel) {
+          n.left = parentNode
+          n.parent = parentNode.parent
+          parentNode.parent = n
+        } else {
+          var tempLeft = n.left
+          n.left = parentNode
+          n.parent = parentNode.parent
+          parentNode.parent = n
+          parentNode.right = tempLeft
+        }
+      }
+    }
+    if (key < n.key) n = n.left
+    else n = n.right
+  }
+  return 0
+
 }
 
 

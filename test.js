@@ -117,5 +117,24 @@ test('check if isAVL function works for non balanced trees', function (t) {
   btree.insert('Waluigi', 'Waluigi')
   t.equal(btree.isAVL(), 0)
   t.end()
+})
 
+
+test('check if rotation works', function (t) {
+  btree.clear()
+  btree.insert('B', 'B')
+  btree.insert('A', 'A')
+  btree.insert('D', 'D')
+  btree.insert ('C', 'C')
+  btree.insert('E', 'E')
+  t.equal(btree.rotate('B'), 0)
+  t.equal(btree.rotate('F'), 0)
+  btree.rotate('D')
+  var expected = 'ACBED'
+  var result = ''
+  btree.postorder(function (node) {
+    result += node.val
+  })
+  t.equal(result, expected)
+  t.end()
 })
